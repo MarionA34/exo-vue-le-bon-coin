@@ -12,11 +12,11 @@ import { RouterLink } from 'vue-router'
         <button><font-awesome-icon :icon="['far', 'plus-square']" />Déposer une annonce</button>
         <div>
           <input placeholder="Rechercher sur leboncoin" />
-          <button><font-awesome-icon :icon="['far', 'magnifying-glass']" /></button>
+          <button><font-awesome-icon :icon="['fas', 'search']" /></button>
         </div>
       </div>
       <div>
-        <p>icon</p>
+        <font-awesome-icon :icon="['far', 'user']" />
         <p>Se connecter</p>
       </div>
     </section>
@@ -54,13 +54,11 @@ main {
   gap: 20px;
 }
 
-.border-bottom {
-  border-bottom: 1px grey solid;
-}
-
 section {
   display: flex;
 }
+
+/* HEADER BOTTOM */
 
 .header-top {
   justify-content: space-between;
@@ -73,22 +71,15 @@ section {
   display: flex;
 }
 
+/* BLOC CENTRAL */
+
 .header-top > div:first-of-type {
   display: flex;
   gap: 20px;
 }
 
-.header-top > div:nth-child(3) {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-bottom {
-  justify-content: space-between;
-}
-
+/* BLOC CENTRAL - DEPOSER UNE ANNONCE
+ */
 .header-top button:first-child {
   background-color: var(--orange-lbc);
   border-radius: 8px;
@@ -102,15 +93,58 @@ section {
   align-items: center;
 }
 
+/* BLOC CENTRAL - RECHERCHER
+ */
+
+.header-top > div > div {
+  display: flex;
+  align-items: center;
+  background-color: rgba(243, 247, 254, 0.93);
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.header-top input {
+  background: unset;
+  border: none;
+  font-size: 17px;
+  width: 250px;
+}
+
 .header-top > div > div > button {
   background-color: var(--orange-lbc);
   border-radius: 8px;
   border: none;
   color: black;
-  font-size: 17px;
+  font-size: 14px;
   padding: 5px;
+  width: 30px;
+  height: 30px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+
+/* SE CONNECTER */
+
+.header-top > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 12px;
+}
+
+.header-top > div:nth-child(3) > svg {
+  font-size: 16px;
+}
+
+/* HEADER BOTTOM */
+
+.header-bottom {
+  justify-content: space-between;
+}
+.border-bottom {
+  border-bottom: 1px grey solid;
 }
 </style>
