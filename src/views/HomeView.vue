@@ -36,8 +36,8 @@ const formatDate = (isoDate) => {
       <img src="../assets/img/feuille-bleue.svg" alt="feuille bleue" />
     </div>
   </header>
-
-  <main class="container">
+  <p v-if="offersList.length === 0">Chargement en cours</p>
+  <main class="container" v-else>
     <div v-for="offer in offersList" :key="offer.id">
       <RouterLink :to="{ name: 'offer', params: { id: offer.id } }">
         <div class="identity">
@@ -47,9 +47,12 @@ const formatDate = (isoDate) => {
           <img :src="pictures.attributes.url" />
         </div>
         <p class="title">{{ offer.attributes.title }}</p>
-        <p class="title">{{ offer.attributes.price }} €</p>
+        <p class="title">{{ offer.attributes.price }} €</p></RouterLink
+      >
+      <div class="bottom-card">
         <p class="date">{{ formatDate(offer.attributes.updatedAt) }}</p>
-      </RouterLink>
+        <font-awesome-icon :icon="['far', 'heart']" class="heart" />
+      </div>
     </div>
   </main>
 </template>
@@ -99,6 +102,14 @@ h1 {
 
 /* GRILLE CENTRALE */
 
+header + p {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+  margin-top: 50px;
+}
+
 a {
   color: black;
 }
@@ -135,8 +146,19 @@ main img {
 }
 
 .date {
-  margin-top: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: grey;
+}
+
+.heart {
+  color: grey;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.bottom-card {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

@@ -52,6 +52,7 @@ main {
   height: var(--header-height);
   padding: 15px 0px;
   gap: 20px;
+  background-color: white;
 }
 
 section {
